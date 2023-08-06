@@ -1,0 +1,19 @@
+def findKRotation(nums : [int]) -> int:
+    n=len(nums)
+    ans=float('inf')
+    idx=n
+    l=0
+    h=n-1
+    while l<=h:
+        mid=l+(h-l)//2
+        if nums[l]<=nums[mid]:
+            if nums[l]<ans:
+                ans=nums[l]
+                idx=l
+            l=mid+1
+        else:
+            if nums[mid]<ans:
+                ans=nums[mid]
+                idx=mid
+            h=mid-1
+    return idx
